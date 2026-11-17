@@ -1,0 +1,45 @@
+# ========================
+# 1. Môi trường ảo (Bắt buộc phải bỏ qua)
+# ========================
+.venv/
+venv/
+env/
+ENV/
+
+# ========================
+# 2. Python cache & biên dịch
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ========================
+# 3. File cấu hình môi trường / Bí mật
+# ========================
+.env
+*.local
+
+# ========================
+# 4. Cấu hình trình soạn thảo (IDE)
+# ========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ========================
+# 5. File tạm hệ thống (Windows / Mac)
+# ========================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ========================
+# 6. Dữ liệu đầu ra của OpenCV (Tùy chọn)
+# (Tránh push video/ảnh kết quả dung lượng lớn lên Git)
+# ========================
+output/
+results/
+*.avi
+*.mp4
