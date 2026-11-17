@@ -1,0 +1,37 @@
+services:
+  # ============================================================================
+  # Backend Service: FastAPI + OpenCV Engine
+  # ============================================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: opencv-studio-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    restart: unless-stopped
+    networks:
+      - opencv-net
+
+  # ============================================================================
+  # Frontend Service: React 19 + Nginx Reverse Proxy
+  # ============================================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: opencv-studio-frontend
+    ports:
+      # Expose on port 3000
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - opencv-net
+
+networks:
+  opencv-net:
+    driver: bridge
